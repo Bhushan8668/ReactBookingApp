@@ -27,26 +27,25 @@ const MovieDetails = () => {
   const today = new Date().toISOString().split('T')[0];
   const showTimes = ['10:00 AM', '1:00 PM', '4:00 PM', '7:00 PM']; 
 
-  // Function to determine if a time is in the past
+
   const isPastTime = (time) => {
     const now = new Date();
     const [hour, minute] = time.split(':');
     const ampm = minute.includes('AM') ? 'AM' : 'PM';
-    
-    // Convert to 24-hour format
+  
     const hours24 = ampm === 'PM' && hour !== '12' ? parseInt(hour) + 12 : hour === '12' ? '12' : hour;
     const dateTime = new Date(selectedDate);
-    dateTime.setHours(hours24, minute.includes('AM') ? 0 : 30); // Set to the appropriate hour and minute
+    dateTime.setHours(hours24, minute.includes('AM') ? 0 : 30); 
 
     return dateTime < now;
   };
 
-  // Filter showtimes based on selected date and current time
+  
   const availableShowTimes = showTimes.filter(time => {
     if (selectedDate === today) {
       return !isPastTime(time);
     }
-    return true; // If the date is not today, all showtimes are available
+    return true; 
   });
 
   return (
