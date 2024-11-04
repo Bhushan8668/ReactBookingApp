@@ -64,6 +64,7 @@ const MovieDetails = () => {
           <button onClick={() => setIsSeatSelectionOpen(true)} disabled={!selectedDate || !selectedTime}>
             Book Show
           </button>
+          <p>Price : 10$ /per Ticket</p>
         </div>
       </div>
 
